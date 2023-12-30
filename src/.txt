@@ -1,0 +1,27 @@
+LOGIN-PAGE
+REGISTER-PAGE
+USER-ROUTES
+ADMIN-ROUTES
+CREATE-PRODUCT
+
+#33475b ==> For Heading
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ERRRORS ==> While Deleting the Category
