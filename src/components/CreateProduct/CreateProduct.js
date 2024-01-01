@@ -24,7 +24,7 @@ const CreateProductForm = () => {
   const getAllCategories = async () => {
     try {
       const { data } = await axios.get(
-        "http://localhost:7000/api/v1/category/get-categories"
+        "https://backendd-delta.vercel.app/api/v1/category/get-categories"
       );
       // console.log(data);
       if (data?.success) {
