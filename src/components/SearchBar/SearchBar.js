@@ -26,14 +26,14 @@ const SearchBar = () => {
         <input
           type="text"
           placeholder="Search Proucts Here"
-          className="w-[500px] p-2 outline-none rounded-2xl"
+          className="w-[500px] p-2 outline-none  input__search"
           value={values.keyword}
           onChange={(e) => setValues({ ...values, keyword: e.target.value })}
         />
         <input
           type="submit"
           value={"Search"}
-          className="btn btn-primary rounded-xl bg-orange-600"
+          className="btn btn-primary  bg-orange-600 input__btn"
         />
       </form>
     </div>

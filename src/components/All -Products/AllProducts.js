@@ -19,6 +19,7 @@ const AllProducts = ({ product }) => {
             src={product.images[2].url}
             alt=""
             className="all__product__image"
+            style={{objectFit:"contain",margin:"auto"}}
           />
           <p className="all__product__name">
             {product.name.substring(0, 20)}....

@@ -26,7 +26,6 @@ const CreateProductForm = () => {
       const { data } = await axios.get(
         "https://backendd-delta.vercel.app/api/v1/category/get-categories"
       );
-      // console.log(data);
       if (data?.success) {
         setCategories(data.categories);
       } else {
@@ -40,7 +39,6 @@ const CreateProductForm = () => {
 
   console.log("category to be uplaoded => ", category);
 
-  // console.log(categories)
   useEffect(() => {
     getAllCategories();
     // Eslint disabled
@@ -69,8 +67,8 @@ const CreateProductForm = () => {
     );
     if (res.data.success) {
       toast.success("Product Create sucecssfully");
-      navigate("/dashboard/all-product")
-      
+      navigate("/dashboard/all-product");
+
       console.log(res);
     } else {
       alert("Something went wrong");
