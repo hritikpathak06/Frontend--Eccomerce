@@ -4,6 +4,7 @@ import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
 import { NavLink } from "react-router-dom";
 import { useAuth } from "../../context/userContext";
 import { useCart } from "../../context/cartContext";
+import SearchBar from "../SearchBar/SearchBar";
 
 const navigation = [
   { name: "Dashboard", href: "/", current: true },
@@ -72,6 +73,7 @@ export default function Header() {
                         {item.name}
                       </NavLink>
                     ))}
+                      <SearchBar />
                   </div>
                 </div>
               </div>
