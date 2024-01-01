@@ -5,6 +5,7 @@ import { NavLink } from "react-router-dom";
 import { useAuth } from "../../context/userContext";
 import { useCart } from "../../context/cartContext";
 import SearchBar from "../SearchBar/SearchBar";
+import { BsFillBasketFill } from "react-icons/bs";
 
 const navigation = [
   { name: "Dashboard", href: "/", current: true },
@@ -19,8 +20,8 @@ function classNames(...classes) {
 
 export default function Header() {
   const [auth] = useAuth();
-  const[cart] = useCart();
-  console.log(cart)
+  const [cart] = useCart();
+  console.log(cart);
 
   const handleLogout = () => {
     localStorage.removeItem("tokens");
@@ -73,23 +74,25 @@ export default function Header() {
                         {item.name}
                       </NavLink>
                     ))}
-                      <SearchBar />
+                    <SearchBar />
                   </div>
                 </div>
               </div>
-              <div className="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
+              <div className=" inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
                 <NavLink to="/cart">
                   <button
                     type="button"
-                    className="relative rounded-full bg-gray-800 p-1 text-gray-400 hover:text-white focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800"
+                    className="relative rounded-full bg-gray-800 p-1 text-gray-400 hover:text-white focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800 mr-4"
                   >
-                    <span className="absolute -inset-1.5" />
-                    <span className="sr-only">View notifications</span>
-                    {/* <ShoppingBasketIcon
-                      className="h-6 w-6"
-                      aria-hidden="true"
-                    /> */}
-                    <span>({cart?.length})</span>
+                    <div className="flex">
+                      <BsFillBasketFill
+                        className="h-6 w-6"
+                        aria-hidden="true"
+                      />
+                      <span className="absolute top-[-0.8rem] right-[-0rem]">
+                        {cart?.length}
+                      </span>
+                    </div>
                   </button>
                 </NavLink>
 
@@ -99,11 +102,6 @@ export default function Header() {
                       <Menu.Button className="relative flex rounded-full bg-gray-800 text-sm focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800">
                         <span className="absolute -inset-1.5" />
                         <span className="sr-only">Open user menu</span>
-                        {/* <img
-                          className="h-8 w-8 rounded-full"
-                          src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
-                          alt=""
-                        /> */}
                         <img
                           src={auth?.user?.avatar}
                           alt=""
@@ -136,19 +134,7 @@ export default function Header() {
                             </NavLink>
                           )}
                         </Menu.Item>
-                        <Menu.Item>
-                          {({ active }) => (
-                            <NavLink
-                              to="#"
-                              className={classNames(
-                                active ? "bg-gray-100" : "",
-                                "block px-4 py-2 text-sm text-gray-700"
-                              )}
-                            >
-                              Settings
-                            </NavLink>
-                          )}
-                        </Menu.Item>
+
                         <Menu.Item>
                           {({ active }) => (
                             <NavLink

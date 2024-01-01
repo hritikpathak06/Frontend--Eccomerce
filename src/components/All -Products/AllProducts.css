@@ -3,6 +3,9 @@
   display: flex;
   flex-wrap: wrap;
   margin: 1rem;
+  box-shadow: inset 5px 5px 15px rgba(0, 0, 0, 0.1),
+    inset -5px -5px 15px rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
 }
 
 .main_div {
@@ -49,7 +52,7 @@
   width: 90%;
 }
 
-.product__details__left{
+.product__details__left {
   /* background-color: red; */
   width: 30% !important;
   height: fit-content !important;

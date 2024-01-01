@@ -22,6 +22,7 @@ import SingleProduct from "./pages/Products/SingleProduct";
 import Cart from "./pages/Cart/Cart";
 import CopyPage from "./pages/Cart/CopyPage";
 import AllOrders from "./pages/AdminDashboard/AllOrders";
+import Search from "./pages/Search/Search";
 
 const App = () => {
   const [auth] = useAuth();
@@ -53,6 +54,7 @@ const App = () => {
 
         <Route path="/products" element={<Products/>}/>
         <Route path="/product/:id" element={<SingleProduct/>}/>
+        <Route path="/search/" element={<Search/>}/>
         <Route path="/cart" element={<Cart/>}/>
         <Route path="/copy" element={<CopyPage/>}/>
 

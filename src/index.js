@@ -8,16 +8,19 @@ import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { AuthProvider } from "./context/userContext";
 import { CartProvider } from "./context/cartContext";
+import { SearchProvider } from "./context/searchContext";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <AuthProvider>
-    <CartProvider>
-      <BrowserRouter>
-        <App />
-        <ToastContainer autoClose={500} />
-      </BrowserRouter>
-    </CartProvider>
+    <SearchProvider>
+      <CartProvider>
+        <BrowserRouter>
+          <App />
+          <ToastContainer autoClose={500} />
+        </BrowserRouter>
+      </CartProvider>
+    </SearchProvider>
   </AuthProvider>
 );
 
