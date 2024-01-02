@@ -23,10 +23,11 @@ import Cart from "./pages/Cart/Cart";
 import CopyPage from "./pages/Cart/CopyPage";
 import AllOrders from "./pages/AdminDashboard/AllOrders";
 import Search from "./pages/Search/Search";
+import Categories from "./pages/Categories/Categories";
+import CategoryList from "./pages/Categories/CategoryList";
 
 const App = () => {
   const [auth] = useAuth();
-
   return (
     <>
       <Header />
@@ -51,12 +52,15 @@ const App = () => {
           <Route path="all-orders" element={<AllOrders />} />
           <Route path="users" element={<AllUsers />} />
         </Route>
-
-        <Route path="/products" element={<Products/>}/>
-        <Route path="/product/:id" element={<SingleProduct/>}/>
-        <Route path="/search/" element={<Search/>}/>
-        <Route path="/cart" element={<Cart/>}/>
-        <Route path="/copy" element={<CopyPage/>}/>
+         
+         {/* PUBLIC ROUTES */}
+        <Route path="/products" element={<Products />} />
+        <Route path="/product/:id" element={<SingleProduct />} />
+        <Route path="/search/" element={<Search />} />
+        <Route path="/cart" element={<Cart />} />
+        <Route path="/categories" element={<Categories />} />
+        <Route path="/category/:slug" element={<CategoryList />} />
+        <Route path="/copy" element={<CopyPage />} />
 
         {/* ERRR HANDLER */}
         <Route path="*" element={<Error />} />

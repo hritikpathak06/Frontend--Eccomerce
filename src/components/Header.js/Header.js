@@ -6,9 +6,10 @@ import { useAuth } from "../../context/userContext";
 import { useCart } from "../../context/cartContext";
 import SearchBar from "../SearchBar/SearchBar";
 import { BsFillBasketFill } from "react-icons/bs";
+import { useCategory } from "../../hooks/useCategory";
 
 const navigation = [
-  { name: "Dashboard", href: "/", current: true },
+  { name: "Categories", href: "/categories", current: false },
   { name: "Home", href: "/", current: false },
   { name: "Products", href: "/products", current: false },
   { name: "Contact", href: "/contact", current: false },
@@ -21,7 +22,6 @@ function classNames(...classes) {
 export default function Header() {
   const [auth] = useAuth();
   const [cart] = useCart();
-  console.log(cart);
 
   const handleLogout = () => {
     localStorage.removeItem("tokens");

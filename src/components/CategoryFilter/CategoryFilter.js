@@ -8,7 +8,6 @@ import {
   PlusIcon,
   Squares2X2Icon,
 } from "@heroicons/react/20/solid";
-import FeatureProducts from "../FeaturedProduct/FeatureProducts";
 import AllProducts from "../All -Products/AllProducts";
 import "react-toastify/dist/ReactToastify.css";
 import { toast } from "react-toastify";
@@ -16,16 +15,17 @@ import axios from "axios";
 import { Checkbox, Radio } from "antd";
 import { prices } from "../Prices/Prices";
 import { ratings } from "../Prices/Ratings";
+import { Pagination } from "antd";
 
 export default function CategoryFilters() {
-  const [mobileFiltersOpen, setMobileFiltersOpen] = useState(false);
   const [products, setProducts] = useState([]);
   const [categories, setCategories] = useState([]);
   const [checked, setChecked] = useState([]);
   const [radio, setRadio] = useState([]);
   const [rating, setRatings] = useState([]);
+  const [currentPage, setCurrentPage] = useState(1);
+  const [pageSize, setPageSize] = useState(6);
 
-  // Get All Products
   const getAllProducts = async () => {
     try {
       const { data } = await axios.get(
@@ -33,7 +33,6 @@ export default function CategoryFilters() {
       );
       if (data.success) {
         setProducts(data.products);
-        console.log(data);
       } else {
         toast.error("cant Fetch the Products");
       }
@@ -42,18 +41,15 @@ export default function CategoryFilters() {
       toast.error("something went wrong");
     }
   };
-
   useEffect(() => {
     if (checked.length || radio.length) filteredProduct();
   }, [checked, radio]);
 
-  // function for getting all categories
   const getAllCategories = async () => {
     try {
       const { data } = await axios.get(
         "https://backendd-delta.vercel.app/api/v1/category/get-categories"
       );
-      // console.log(data);
       if (data?.success) {
         setCategories(data.categories);
       } else {
@@ -94,8 +90,18 @@ export default function CategoryFilters() {
   }, [checked.length, radio.length]);
 
   useEffect(() => {
-    if (checked.length || radio.length) filteredProduct();
+    if (checked.length || radio.length) {
+      setCurrentPage(1);
+      setPageSize(26);
+      filteredProduct();
+    } else {
+      getAllProducts();
+    }
   }, [checked, radio]);
+
+  const handlePageChange = (page) => {
+    setCurrentPage(page);
+  };
 
   return (
     <div className="bg-white">
@@ -112,7 +118,6 @@ export default function CategoryFilters() {
               Products
             </h2>
             <div className="grid grid-cols-1 gap-x-8 gap-y-10 lg:grid-cols-4">
-              {/* Filters */}
               <form className="hidden lg:block">
                 <h3 className="sr-only">Categories</h3>
                 <button className="btn btn-warning m-auto w-100">
@@ -133,7 +138,6 @@ export default function CategoryFilters() {
                     </Checkbox>
                   ))}
                 </ul>
-
                 <ul
                   role="list"
                   className="space-y-4 border-b border-gray-200 pb-6 text-sm font-medium text-gray-900"
@@ -148,12 +152,11 @@ export default function CategoryFilters() {
                     ))}
                   </Radio.Group>
                 </ul>
-
                 <ul
                   role="list"
                   className="space-y-4 border-b border-gray-200 pb-6 text-sm font-medium text-gray-900"
                 >
-                  <Radio.Group onChange={(e) => setRatings(e.target.value)}>
+                  <Radio.Group>
                     {ratings.map((r) => (
                       <div key={r._id}>
                         <Radio className="mt-3" value={r.array}>
@@ -164,15 +167,25 @@ export default function CategoryFilters() {
                   </Radio.Group>
                 </ul>
               </form>
-
-              {/* Product grid */}
               <div className="lg:col-span-3 flex all-product-section flex-wrap">
                 {products &&
-                  products.map((product) => (
-                    <>
-                      <AllProducts product={product} />
-                    </>
-                  ))}
+                  products
+                    .slice((currentPage - 1) * pageSize, currentPage * pageSize)
+                    .map((product) => (
+                      <>
+                        <AllProducts product={product} />
+                      </>
+                    ))}
+                <div className="mt-8">
+                  {checked.length === 0 && radio.length === 0 && (
+                    <Pagination
+                      current={currentPage}
+                      total={products.length}
+                      pageSize={pageSize}
+                      onChange={handlePageChange}
+                    />
+                  )}
+                </div>
               </div>
             </div>
           </section>

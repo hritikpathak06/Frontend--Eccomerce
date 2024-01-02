@@ -17,7 +17,7 @@ const Home = () => {
       );
       if (data.success) {
         setProducts(data.products);
-        console.log(data);
+        // console.log(data);
       } else {
         toast.error("cant Fetch the Products");
       }

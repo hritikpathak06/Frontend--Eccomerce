@@ -9,6 +9,42 @@
   border-radius: 10px;
 }
 
+.plus-icon {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  /* right: -5%; */
+  transform: translate(-50%, -50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.plus-icon-svg {
+  width: 40px;
+  height: 40px;
+  color:tomato; /* Adjust the color as needed */
+}
+
+.tooltip {
+  margin-top: 4px;
+  font-size: 12px;
+  color: #fff; /* Tooltip text color */
+  background-color: #000000;
+  padding: 4px 8px;
+  border-radius: 4px;
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+}
+
+.plus-icon:hover .tooltip {
+  opacity: 1;
+}
+
 .main_div {
   width: 100%;
   height: 100%;
