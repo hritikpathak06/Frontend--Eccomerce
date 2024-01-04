@@ -22,16 +22,17 @@ export default function FeatureProducts({
     <div className="bg-white">
       <NavLink to={`/product/${id}`}>
         <div
-          className="mx-auto grid max-w-2xl grid-cols-1 items-center  gap-x-8 gap-y-16 px-4 py-24 sm:px-6  lg:max-w-7xl  lg:grid-cols-2 lg:px-8 "
+          className="mx-auto grid max-w-2xl grid-cols-1 items-center   gap-y-16 px-4  lg:max-w-7xl  lg:grid-cols-2 gap-x-8"
           key={id}
         >
+        {/*  lg:px-8 */}
           <div>
             <h2 className="text-2xl font-bold tracking-tight text-[#33475b] sm:text-2xl">
               {name}
             </h2>
-            <p className="mt-4 text-gray-500">{description}</p>
+            <p className="mt-4 text-gray-500">{description.substring(0,300)}.....</p>
+            <dl className="mt-16 grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2  lg:gap-x-8 sm:gap-y-16">
 
-            <dl className="mt-16 grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 sm:gap-y-16 lg:gap-x-8">
               <div className="border-t border-gray-200 pt-4">
                 <dt className="font-extrabold text-gray-900 ">Price</dt>
                 <dd className="mt-2 text-sm text-gray-500">₹:{price}</dd>
@@ -52,25 +53,25 @@ export default function FeatureProducts({
               </div>
             </dl>
           </div>
-          <div className="grid grid-cols-2 grid-rows-2 gap-4 sm:gap-6 lg:gap-8 mt-5">
+          <div className="grid grid-cols-2 bg-[rgba(128, 128, 128, 0.222)] grid-rows-2 gap-4 sm:gap-6 lg:gap-8 mt-5">
             <img
               src={images[0].url}
-              className="rounded-lg  bg-white"
+              className="rounded-lg "
               style={{ width: "150px", height: "300px", objectFit: "contain" }}
             />
             <img
               src={images[1].url}
-              className="rounded-lg  bg-white"
+              className="rounded-lg "
               style={{ width: "150px", height: "300px", objectFit: "contain" }}
             />
             <img
               src={images[2].url}
-              className="rounded-lg bg-white"
+              className="rounded-lg"
               style={{ width: "150px", height: "300px", objectFit: "contain" }}
             />
             <img
               src={images[3].url}
-              className="rounded-lg  bg-white"
+              className="rounded-lg "
               style={{ width: "150px", height: "300px", objectFit: "contain" }}
             />
           </div>

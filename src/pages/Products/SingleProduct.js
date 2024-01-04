@@ -8,6 +8,7 @@ import { toast } from "react-toastify";
 import { useCart } from "../../context/cartContext";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/swiper-bundle.css";
+import AllProducts from "../../components/All -Products/AllProducts";
 
 const options = {
   edit: false,
@@ -21,6 +22,8 @@ const SingleProduct = () => {
   const { id } = useParams();
   const [quantity, setQuantity] = useState(1);
   const [product, setProduct] = useState({});
+  const [relatedProducts, setRelatedProducts] = useState([]);
+
   const [singleImage, setSingleImage] = useState("");
   const [cart, setCart] = useCart();
 
@@ -33,6 +36,7 @@ const SingleProduct = () => {
       if (data.success) {
         setProduct(data.product);
         setSingleImage(data.product.images[0].url);
+        getSimilarProducts(data?.product._id, data?.product.category._id);
       } else {
         toast.error("Cant Fetch the Product");
       }
@@ -55,16 +59,34 @@ const SingleProduct = () => {
     const itemToAdd = {
       ...product,
       quantity,
-      total: product.price * quantity, // Calculate the total price based on quantity
+      total: product.price * quantity,
     };
     setCart([...cart, itemToAdd]);
     localStorage.setItem("cart", JSON.stringify([...cart, itemToAdd]));
     toast.success("Item Added To Cart");
   };
 
+  // Get similar products
+  const getSimilarProducts = async (pid, cid) => {
+    try {
+      const { data } = await axios.get(
+        `https://backendd-delta.vercel.app/api/v1/product/similar-products/${pid}/${cid}`
+      );
+      if (data?.success) {
+        setRelatedProducts(data?.products);
+      }
+    } catch (error) {
+      console.log(error);
+      alert(error);
+    }
+  };
+
   useEffect(() => {
-    product && getSingleProduct();
+    getSingleProduct();
+    // getSimilarProducts();
   }, []);
+
+  console.log("Related Products =>", relatedProducts);
 
   return (
     <>
@@ -147,6 +169,17 @@ const SingleProduct = () => {
               Buy Now
             </button>
           </div>
+        </div>
+      </div>
+      <div className="w-[100vw]">
+        <h1 className="text-6xl text-center font-extrabold text-[#33475b]">
+          Similar Products
+        </h1>
+        <div className="flex w-[60%] m-auto">
+
+        {relatedProducts && relatedProducts.map((product,index) => (
+          <AllProducts product={product} key={index}/>
+        ))}
         </div>
       </div>
     </>

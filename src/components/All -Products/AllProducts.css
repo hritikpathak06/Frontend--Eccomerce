@@ -13,7 +13,6 @@
   position: absolute;
   top: 50%;
   left: 50%;
-  /* right: -5%; */
   transform: translate(-50%, -50%);
   display: flex;
   flex-direction: column;
@@ -23,13 +22,13 @@
 .plus-icon-svg {
   width: 40px;
   height: 40px;
-  color:tomato; /* Adjust the color as needed */
+  color: tomato;
 }
 
 .tooltip {
   margin-top: 4px;
   font-size: 12px;
-  color: #fff; /* Tooltip text color */
+  color: #fff;
   background-color: #000000;
   padding: 4px 8px;
   border-radius: 4px;
@@ -48,7 +47,6 @@
 .main_div {
   width: 100%;
   height: 100%;
-  /* background-color: black; */
   display: flex;
   flex-direction: column;
   text-align: center;
@@ -84,13 +82,11 @@
 }
 
 .all__product__image {
-  /* aspect-ratio: 20/20; */
   height: 300px;
   width: 90%;
 }
 
 .product__details__left {
-  /* background-color: red; */
   width: 30% !important;
   height: fit-content !important;
   align-items: center !important;
@@ -111,8 +107,5 @@
   .product__details__image {
     height: 150px !important;
     object-fit: contain !important;
-    /* width: 50%;
-    margin: auto !important;
-    align-items: center; */
   }
 }
