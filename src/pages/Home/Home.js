@@ -8,6 +8,10 @@ import axios from "axios";
 import "./home.css";
 import TopCatgeory from "../../components/Top-Category/TopCatgeory";
 import PopularCategories from "../../components/Popular Categories/PopularCategories";
+import LogoSlider from "../../components/Logo Slider/LogoSlider";
+import ShippingDetails from "../../components/Shipping-Details/ShippingDetails";
+import Faq from "../../components/FAQ/FAQ";
+import MetaData from "../../Metadata/MetaData";
 
 const Home = () => {
   const [auth] = useAuth();
@@ -35,9 +39,12 @@ const Home = () => {
 
   return (
     <div>
+      <MetaData title={"Shop Easy-No 1 Shopping Site"} />
       <Carousel />
       <TopCatgeory />
-      <PopularCategories/>
+      <PopularCategories />
+      <LogoSlider />
+      <ShippingDetails />
       <div className="home__section">
         <h1 className="text-6xl text-center font-extrabold mb-5 text-[#33475b]">
           Our Featured Products
@@ -59,6 +66,8 @@ const Home = () => {
             ) : null
           )}
       </div>
+      <LogoSlider />
+      <Faq />
       <Carousel />
     </div>
   );

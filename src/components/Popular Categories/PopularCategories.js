@@ -5,7 +5,7 @@ import { useCategory } from "../../hooks/useCategory";
 
 const PopularCategories = () => {
   const categories = useCategory();
-  console.log(categories)
+  console.log(categories);
   return (
     <>
       <div className="popular__categories">
@@ -19,7 +19,11 @@ const PopularCategories = () => {
                 <NavLink to={`/category/${category.slug}`}>
                   <div className="popular__sub__category__box">
                     <h3 className="mr-3">{category.name}</h3>
-                    <img src={category.url} alt=""  style={{objectFit:"contain"}}/>
+                    <img
+                      src={category.url}
+                      alt=""
+                      style={{ objectFit: "contain" }}
+                    />
                   </div>
                 </NavLink>
               </>

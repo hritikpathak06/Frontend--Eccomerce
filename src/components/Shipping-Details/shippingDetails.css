@@ -1,0 +1,26 @@
+.shipping__details {
+  width: 100vw;
+  height: fit-content;
+  /* background-color: yellow; */
+  margin-bottom: 7rem;
+}
+
+.shipping__details__box {
+  width: 90%;
+  /* background-color: red; */
+  margin: auto;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  box-shadow: 8px 8px 16px #d1d1d1, -8px -8px 16px #ffffff;
+  padding: 30px;
+  border-radius: 20px;
+  flex-wrap: wrap;
+}
+
+.details__box > p {
+  color: tomato;
+  font-size: 17px;
+  font-weight: bolder;
+}
