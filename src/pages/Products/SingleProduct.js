@@ -59,7 +59,7 @@ const SingleProduct = () => {
     const itemToAdd = {
       ...product,
       quantity,
-      total: product.price * quantity,
+      total: product.price,
     };
     setCart([...cart, itemToAdd]);
     localStorage.setItem("cart", JSON.stringify([...cart, itemToAdd]));
@@ -115,18 +115,63 @@ const SingleProduct = () => {
           </Swiper>
         </div>
 
-        <div className="product__details__right mt-10">
+        <div className="product__details__right mt-20">
           <h2 className="product__detail__name text-[#33475b]">
             {product.name}
           </h2>
-          <div className="product__detail__react__star">
+          <div className="product__detail__react__star mt-[-1rem]">
             <ReactStars
               size={40}
               {...options}
               classNames="react__stars__component"
             />
           </div>
-          <p className="product__details__price">Rs{product.price}</p>
+          <p className="product__details__price mt-[-1rem]">
+            Rs {product.price}
+          </p>
+          <div className="product__details__offer">
+            <h2>Available Offers</h2>
+            <div className="product__details__offer__box">
+              <img
+                src="https://rukminim2.flixcart.com/www/36/36/promos/06/09/2016/c22c9fc4-0555-4460-8401-bf5c28d7ba29.png?q=90"
+                alt=""
+              />
+              <p>
+                Bank Offer10% off on Bank of Baroda Credit Card EMI Txns, up to
+                ₹1,500 on orders of ₹10,000 and above
+              </p>
+            </div>
+            <div className="product__details__offer__box">
+              <img
+                src="https://rukminim2.flixcart.com/www/36/36/promos/06/09/2016/c22c9fc4-0555-4460-8401-bf5c28d7ba29.png?q=90"
+                alt=""
+              />
+              <p>
+                Bank Offer10% off on IDFC FIRST Bank Credit Card EMI
+                Transactions, up to ₹1,250 on orders of ₹10,000 and above
+              </p>
+            </div>
+            <div className="product__details__offer__box">
+              <img
+                src="https://rukminim2.flixcart.com/www/36/36/promos/06/09/2016/c22c9fc4-0555-4460-8401-bf5c28d7ba29.png?q=90"
+                alt=""
+              />
+              <p>
+                Bank OfferFlat ₹750 off on OneCard Credit Card and Credit EMI
+                Transactions on orders of ₹12,500 and above
+              </p>
+            </div>
+            <div className="product__details__offer__box">
+              <img
+                src="https://rukminim2.flixcart.com/www/36/36/promos/06/09/2016/c22c9fc4-0555-4460-8401-bf5c28d7ba29.png?q=90"
+                alt=""
+              />
+              <p>
+                Special PriceGet extra ₹4200 off (price inclusive of
+                cashback/coupon)
+              </p>
+            </div>
+          </div>
           <div className="product__details__quantity">
             <button
               className="product__details__btn"
@@ -147,20 +192,20 @@ const SingleProduct = () => {
               +
             </button>
           </div>
-          <p className="prodcut__details__description">
+          <p className="prodcut__details__description text-[13px]">
             <span>Description:</span>
             {product.description}
           </p>
           <div className="product__details__main__btn">
             <button
-              className="product__details__mainBtn add_TO_cart"
+              className="product__details__mainBtn add_TO_cart text-[tomato] bg-[black]"
               onClick={addToCart}
             >
               Add To Cart
             </button>
             <button
-              className="product__details__mainBtn add_TO_cart"
-              style={{ color: "#fff", background: "tomato" }}
+              className="product__details__mainBtn add_TO_cart bg-[tomato]"
+              // style={{ color: "#fff", background: "tomato" }}
               onClick={() => {
                 addToCart();
                 navigate("/cart");
@@ -171,17 +216,19 @@ const SingleProduct = () => {
           </div>
         </div>
       </div>
+      {relatedProducts.length != 0 &&
       <div className="w-[100vw]">
         <h1 className="text-6xl text-center font-extrabold text-[#33475b]">
           Similar Products
         </h1>
         <div className="flex w-[60%] m-auto">
-
-        {relatedProducts && relatedProducts.map((product,index) => (
-          <AllProducts product={product} key={index}/>
-        ))}
+          {relatedProducts &&
+            relatedProducts.map((product, index) => (
+              <AllProducts product={product} key={index} />
+            ))}
         </div>
       </div>
+      }
     </>
   );
 };

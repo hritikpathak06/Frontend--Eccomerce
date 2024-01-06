@@ -9,13 +9,15 @@ const Search = () => {
     <>
       <div className="container mt-20">
         <div className="text-center">
-          <h1 className="text-6xl font-extrabold etxt">Seach Results</h1>
+          <h1 className="text-6xl font-extrabold text-[#33475b]">
+            Seach Results
+          </h1>
           <h6>
             {values?.results.length < 1
               ? "No Products Found"
               : `Found ${values.results.length}`}
           </h6>
-          <div className="flex  m-auto flex-wrap min-h-fit">
+          <div className="flex  m-auto flex-wrap min-h-fit search__product w-[80%]">
             {values.results &&
               values.results.map((product) => (
                 <>

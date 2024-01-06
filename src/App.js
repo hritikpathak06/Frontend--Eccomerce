@@ -25,6 +25,7 @@ import AllOrders from "./pages/AdminDashboard/AllOrders";
 import Search from "./pages/Search/Search";
 import Categories from "./pages/Categories/Categories";
 import CategoryList from "./pages/Categories/CategoryList";
+import Contact from "./pages/Contact/Contact";
 
 const App = () => {
   const [auth] = useAuth();
@@ -61,6 +62,7 @@ const App = () => {
         <Route path="/categories" element={<Categories />} />
         <Route path="/category/:slug" element={<CategoryList />} />
         <Route path="/copy" element={<CopyPage />} />
+        <Route path="/contact" element={<Contact/>}/>
 
         {/* ERRR HANDLER */}
         <Route path="*" element={<Error />} />

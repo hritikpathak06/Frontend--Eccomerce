@@ -8,6 +8,9 @@ import axios from "axios";
 import { toast } from "react-toastify";
 import ReactStars from "react-rating-stars-component";
 import "./Cart.css";
+import NoProductCart from "./NoProductCart";
+import Faq from "../../components/FAQ/FAQ";
+import MetaData from "../../Metadata/MetaData";
 
 const CartPage = () => {
   const [auth] = useAuth();
@@ -85,12 +88,13 @@ const CartPage = () => {
 
   return (
     <>
+      <MetaData title={"Your Cart || Shop Easy-No 1 Shopping Site"} />
       <div className="cart mt-10 ">
-        <h1 className="text-center text-4xl text-[#33475b] font-extrabold mb-10 mt-13 sm:text-3xl">
-          {/* Your Cart Items: {cart?.length} */}
+        <h1 className="text-center text-6xl text-[#33475b] font-extrabold  mt-10 ">
+          Your Cart Items: {cart?.length}
         </h1>
         {cart.length === 0 ? (
-          <h1>You Have No Items In the Cart</h1>
+          <NoProductCart />
         ) : (
           <div className="cart__page">
             <div className="left__cart">
@@ -210,6 +214,7 @@ const CartPage = () => {
           </div>
         )}
       </div>
+      <Faq />
     </>
   );
 };
