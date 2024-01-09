@@ -59,10 +59,10 @@ const SingleProduct = () => {
     const itemToAdd = {
       ...product,
       quantity,
-      total: product.price,
+      total: product.price * quantity,
     };
-    setCart([...cart, itemToAdd]);
-    localStorage.setItem("cart", JSON.stringify([...cart, itemToAdd]));
+
+    setCart((prevCart) => [...prevCart, itemToAdd]);
     toast.success("Item Added To Cart");
   };
 
@@ -80,6 +80,10 @@ const SingleProduct = () => {
       alert(error);
     }
   };
+
+  useEffect(() => {
+    localStorage.setItem("cart", JSON.stringify(cart));
+  }, [cart]);
 
   useEffect(() => {
     getSingleProduct();
@@ -216,19 +220,19 @@ const SingleProduct = () => {
           </div>
         </div>
       </div>
-      {relatedProducts.length != 0 &&
-      <div className="w-[100vw]">
-        <h1 className="text-6xl text-center font-extrabold text-[#33475b]">
-          Similar Products
-        </h1>
-        <div className="flex w-[60%] m-auto">
-          {relatedProducts &&
-            relatedProducts.map((product, index) => (
-              <AllProducts product={product} key={index} />
-            ))}
+      {relatedProducts.length != 0 && (
+        <div className="w-[100vw]">
+          <h1 className="text-6xl text-center font-extrabold text-[#33475b]">
+            Similar Products
+          </h1>
+          <div className="flex w-[60%] m-auto">
+            {relatedProducts &&
+              relatedProducts.map((product, index) => (
+                <AllProducts product={product} key={index} />
+              ))}
+          </div>
         </div>
-      </div>
-      }
+      )}
     </>
   );
 };

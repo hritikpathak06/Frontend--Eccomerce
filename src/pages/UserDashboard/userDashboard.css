@@ -1,0 +1,34 @@
+.user__dashboard {
+  margin-top: 3rem !important;
+}
+
+.user__card {
+  display: flex !important;
+  align-items: center;
+}
+
+.user__card > h1 {
+  font-size: 15px;
+  font-weight: bolder;
+  color: #33475b;
+}
+
+.user__img {
+  width: 200px;
+  object-fit: cover;
+  border-radius: 100%;
+  border: 5px solid black;
+}
+
+@media screen and (max-width: 600px) {
+  .main__user__dashboard {
+    width: 100% !important;
+    padding: 0 !important;
+    margin-left: -0rem !important;
+    align-items: center;
+    display: flex;
+  }
+  .user__card {
+    margin: auto;
+  }
+}

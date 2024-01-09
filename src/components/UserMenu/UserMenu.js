@@ -1,10 +1,11 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
+import "./userMenu.css"
 
 const UserMenu = () => {
   return (
     <>
-      <div className="text-center mt-10">
+      <div className="text-center mt-10 user__menu__dashboard">
         <div className="list-group">
           <NavLink
             to="/dashboard/user"

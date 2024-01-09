@@ -1,26 +1,23 @@
 import React from "react";
 import UserMenu from "../../components/UserMenu/UserMenu";
 import { useAuth } from "../../context/userContext";
+import "./userDashboard.css"
 
 const UserDashboard = () => {
   const [auth] = useAuth();
   return (
     <>
-      <div className="container-fluid m-3 p-3">
+      <div className="container-fluid m-3 p-3 main__user__dashboard">
         <div className="row">
-          <div className="col-md-3">
+          <div className="col-md-3 user__menu">
             <UserMenu />
           </div>
-          <div className="col-md-9">
-            <div className="card w-75 p-3 flex items-center">
+          <div className="col-md-9 user__dashboard">
+            <div className="card w-75 p-3 flex items-center user__card">
               <img
                 src={auth?.user.avatar}
                 alt=""
-                style={{
-                  width: "300px",
-                  borderRadius: "10%",
-                  objectFit: "cover",
-                }}
+                className="user__img"
               />
               <h1>User Name: {auth.user.name}</h1>
               <h1>User Email: {auth.user.email}</h1>

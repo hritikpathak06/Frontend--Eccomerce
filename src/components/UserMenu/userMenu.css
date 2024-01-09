@@ -1,0 +1,8 @@
+
+
+@media screen and (max-width:600px){
+    .user__menu__dashboard{
+        margin: 2rem !important;
+        margin-top: 4rem !important;
+    }
+}
