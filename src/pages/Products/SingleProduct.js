@@ -225,7 +225,7 @@ const SingleProduct = () => {
           <h1 className="text-6xl text-center font-extrabold text-[#33475b]">
             Similar Products
           </h1>
-          <div className="flex w-[60%] m-auto">
+          <div className="flex w-[90%] m-auto flex-wrap">
             {relatedProducts &&
               relatedProducts.map((product, index) => (
                 <AllProducts product={product} key={index} />
