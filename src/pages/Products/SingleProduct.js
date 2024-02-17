@@ -90,8 +90,6 @@ const SingleProduct = () => {
     // getSimilarProducts();
   }, []);
 
-  console.log("Related Products =>", relatedProducts);
-
   return (
     <>
       <MetaData title={"Product Description || Shop Easy-No 1 Shopping Site"} />
@@ -220,7 +218,7 @@ const SingleProduct = () => {
           </div>
         </div>
       </div>
-      {relatedProducts.length != 0 && (
+      {relatedProducts.length !== 0 && (
         <div className="w-[100vw]">
           <h1 className="text-6xl text-center font-extrabold text-[#33475b]">
             Similar Products

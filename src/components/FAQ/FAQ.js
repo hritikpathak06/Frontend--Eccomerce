@@ -1,9 +1,8 @@
 // Faq.js
 
-import React, { useState } from 'react';
+import React, { useState } from "react";
 
 const Faq = () => {
-
   const [openIndex, setOpenIndex] = useState(null);
 
   const toggleFaq = (index) => {
@@ -12,20 +11,17 @@ const Faq = () => {
 
   return (
     <div className="container mx-auto py-8 w-[90vw]">
-      <h1 className="text-6xl font-extrabold text-center text-[#33475b] mb-4">Frequently Asked Questions</h1>
+      <h1 className="text-6xl font-extrabold text-center text-[#33475b] mb-4">
+        Frequently Asked Questions
+      </h1>
 
       <div className="grid gap-4">
         {faqData.map((item, index) => (
           <div key={index} className="bg-white p-4 rounded-md shadow-md">
-            <div
-              className="cursor-pointer"
-              onClick={() => toggleFaq(index)}
-            >
+            <div className="cursor-pointer" onClick={() => toggleFaq(index)}>
               <h2 className="text-xl font-semibold mb-2">{item.question}</h2>
             </div>
-            {openIndex === index && (
-              <p>{item.answer}</p>
-            )}
+            {openIndex === index && <p>{item.answer}</p>}
           </div>
         ))}
       </div>
@@ -35,66 +31,80 @@ const Faq = () => {
 
 export default Faq;
 
-
 const faqData = [
   {
-    question: 'What is React?',
-    answer: 'React is a JavaScript library for building user interfaces.',
+    question: "How do I place an order?",
+    answer:
+      'To place an order, simply browse our products, select the items you wish to purchase, and click on the "Add to Cart" button. Once you have added all desired items to your cart, proceed to the checkout page and follow the instructions to complete your purchase.',
   },
   {
-    question: 'How do I install React?',
-    answer: 'You can install React using npm or yarn. For example: npm install react',
+    question: "What payment methods do you accept?",
+    answer:
+      "We accept payment via credit/debit cards, PayPal, and other secure payment gateways. You can choose your preferred payment method at checkout.",
   },
   {
-    question: 'What are React components?',
-    answer: 'React components are the building blocks of a React application. They are reusable and self-contained pieces of code that define how a part of the user interface should appear and behave.',
+    question: "Can I cancel or modify my order?",
+    answer:
+      "You can cancel or modify your order within 24 hours of placing it. Please contact our customer support team with your order details for assistance.",
   },
   {
-    question: 'Can I use React with other libraries or frameworks?',
-    answer: 'Yes, React can be used alongside other libraries or frameworks. It is commonly used with libraries like Redux for state management and frameworks like Next.js for server-side rendering.',
+    question: "How can I track my order?",
+    answer:
+      "Once your order has been shipped, you will receive a tracking number via email. You can use this tracking number to track the status of your order on our website or the couriers website.",
   },
   {
-    question: 'What is JSX?',
-    answer: 'JSX (JavaScript XML) is a syntax extension for JavaScript recommended by React. It allows you to write HTML elements and components in a syntax similar to XML or HTML.',
+    question: "What is your return policy?",
+    answer:
+      "We offer a 30-day return policy for most items. If you are not satisfied with your purchase, you can return the item for a refund or exchange. Please refer to our Return Policy for more information.",
   },
   {
-    question: 'How does React handle data?',
-    answer: 'React uses a unidirectional data flow. Data is passed down from a parent component to its child components through props. State is used to manage component-specific data.',
+    question: "Do you offer international shipping?",
+    answer:
+      "Yes, we offer international shipping to select countries. Shipping rates and delivery times may vary depending on the destination. Please refer to our Shipping Policy for more information.",
   },
   {
-    question: 'What is the virtual DOM?',
-    answer: 'The virtual DOM (Document Object Model) is a programming concept where an ideal, or virtual, representation of a user interface is kept in memory. React uses a virtual DOM to improve performance by updating only the parts of the actual DOM that have changed.',
+    question: "How do I contact customer support?",
+    answer:
+      "You can contact our customer support team via email at support@yourwebsite.com or by phone at 123-456-7890. Our customer support team is available Monday to Friday, 9am to 5pm EST.",
   },
   {
-    question: 'Can I use React with TypeScript?',
-    answer: 'Yes, React can be used with TypeScript. You can create React components and applications with TypeScript to add static typing to your code.',
+    question: "Are my personal and payment details secure?",
+    answer:
+      "Yes, we take the security of your personal and payment information seriously. We use industry-standard encryption technology to protect your data.",
   },
   {
-    question: 'How do I handle forms in React?',
-    answer: 'In React, you can handle forms by using controlled components. A controlled component is a component that renders a form and controls the form elements within the component’s state.',
+    question: "Do you offer discounts or promotions?",
+    answer:
+      "Yes, we offer discounts and promotions from time to time. Sign up for our newsletter to receive exclusive offers and discounts.",
   },
   {
-    question: 'What is the significance of keys in React lists?',
-    answer: 'Keys are used in React lists to give elements a stable identity. They help React identify which items have changed, are added, or are removed in a list. Keys should be unique among siblings but do not need to be globally unique.',
+    question: "What if the item I want is out of stock?",
+    answer:
+      "If the item you want is out of stock, you can sign up to be notified when it becomes available again. Alternatively, you can choose from our selection of similar products that are currently in stock.",
   },
   {
-    question: 'What is the role of setState()?',
-    answer: 'The setState() method is used in React to update the state of a component. It triggers a re-render of the component and its child components. It can be called with an object or a function that returns an object representing the new state.',
+    question: "How do I return a defective product?",
+    answer:
+      "If you receive a defective product, please contact our customer support team within 7 days of receiving your order. We will arrange for a replacement or refund as per our Return Policy.",
   },
   {
-    question: 'How can I make AJAX requests in React?',
-    answer: 'You can make AJAX requests in React using the Fetch API, Axios, or other HTTP libraries. You can perform asynchronous operations, such as fetching data from a server, in the componentDidMount lifecycle method or by using hooks like useEffect.',
+    question: "Can I change the shipping address after placing an order?",
+    answer:
+      "Unfortunately, we cannot change the shipping address once an order has been placed. Please ensure that your shipping address is correct at the time of checkout.",
   },
   {
-    question: 'What is React Router?',
-    answer: 'React Router is a library for routing in React applications. It enables navigation and URL routing in a React application by providing a declarative way to map components to specific routes.',
+    question: "Do you offer gift wrapping services?",
+    answer:
+      "Yes, we offer gift wrapping services for an additional fee. You can select this option at checkout.",
   },
   {
-    question: 'How can I deploy a React app?',
-    answer: 'You can deploy a React app by using platforms like Netlify, Vercel, GitHub Pages, or hosting services that support static file hosting. Create a production build of your app using tools like npm or yarn, and then deploy the generated build files.',
+    question: "How do I unsubscribe from marketing emails?",
+    answer:
+      'You can unsubscribe from marketing emails by clicking on the "Unsubscribe" link at the bottom of any marketing email you receive from us.',
   },
   {
-    question: 'What is the significance of useEffect()?',
-    answer: 'useEffect() is a React hook used for side effects in functional components. It allows you to perform actions such as data fetching, subscriptions, or manually changing the DOM after the component has been rendered. It replaces lifecycle methods like componentDidMount, componentDidUpdate, and componentWillUnmount.',
+    question: "What if I have a complaint or feedback?",
+    answer:
+      "We value your feedback and take complaints seriously. Please contact our customer support team with details of your complaint or feedback, and we will do our best to address it promptly.",
   },
 ];

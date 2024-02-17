@@ -3,16 +3,18 @@ import { useCategory } from "../../hooks/useCategory";
 import { NavLink } from "react-router-dom";
 import "./allCategories.css";
 import MetaData from "../../Metadata/MetaData";
+import TopCatgeory from "../../components/Top-Category/TopCatgeory";
 
 const Categories = () => {
   const categories = useCategory();
 
   return (
     <>
-    <MetaData title={"All Categories || Shop Easy-No 1 Shopping Site"} />
+      <MetaData title={"All Categories || Shop Easy-No 1 Shopping Site"} />
       <h1 className="text-6xl font-extrabold text-center text-[#33475b] mt-[6rem] w-auto">
         All Categories
       </h1>
+      <TopCatgeory />
       <div className="all__categories">
         <div className="left__categories">
           {categories &&

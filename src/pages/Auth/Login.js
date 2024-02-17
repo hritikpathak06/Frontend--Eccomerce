@@ -8,8 +8,8 @@ import { useAuth } from "../../context/userContext";
 
 const Login = () => {
   const navigate = useNavigate();
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
+  const [email, setEmail] = useState("admin@gmail.com");
+  const [password, setPassword] = useState("admin");
   const [auth, setAuth] = useAuth();
 
   const handleLoginSubmit = async (event) => {

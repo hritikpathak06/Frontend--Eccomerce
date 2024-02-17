@@ -1,6 +1,6 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
-import "./userMenu.css"
+import "./userMenu.css";
 
 const UserMenu = () => {
   return (
@@ -13,12 +13,12 @@ const UserMenu = () => {
           >
             User Panel
           </NavLink>
-          <NavLink
+          {/* <NavLink
             to="/dashboard/profile"
             className="list-group-item list-group-item-action"
           >
             Profile
-          </NavLink>
+          </NavLink> */}
           <NavLink
             to="/dashboard/orders"
             className="list-group-item list-group-item-action"

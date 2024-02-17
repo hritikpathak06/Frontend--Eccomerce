@@ -12,9 +12,7 @@ const AllProducts = ({ product }) => {
   };
   return (
     <>
-      <div
-        className="all__product__prodcuts"
-      >
+      <div className="all__product__prodcuts">
         <NavLink to={`/product/${product._id}`} className={"main_div"}>
           <img
             src={product.images[2].url}
